@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор интернет-цитат</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="main__title">Генератор интернет-цитат</h1>
+        <div class="main__img-wrap">
+            <img src="./images/1.png" id="image" class="main__img">
+        </div>
+        <div class="main__quote-wrap">
+            <p id="quote" class="main__quote">Каждый может кинуть камень в волка, собственно тогда я и родился</p>
+        </div>
+        <button onclick="generateQuote()" class="main__button">Сгенерировать цитату</button>
+    </div>
+
+    <script>
+        const image = document.getElementById("image");
+        const quote = document.getElementById("quote");
+
+        function getRandomElement(arr, endIndex) {
+            return arr[Math.floor(Math.random() * endIndex)]
+        }
+
+        function generateQuote() {
+            const quotes = [
+                'Кто рано встает, тот почти всегда пожалеет о своем решении.',
+                'На ошибках учатся, но на своих ошибках учиться веселее.',
+                'Когда меня рожали, собственно тогда я и родился',
+                'Каждый может кинуть камень в волка, но не каждый может кинуть волка в камень.',
+                'Если жизнь дает вам лимоны, не сдавайтесь, просто сделайте лимонад.',
+                'Если вы не можете найти дорогу, то, возможно, вы просто не там ищете.',
+                'Не бойтесь ошибаться - бойтесь повторять ошибки.',
+                'Не бойтесь пробовать новое, ведь в конце концов, вы всегда можете вернуться к старому.',
+
+            ]
+            const images = [
+                '1.png',
+                '2.png',
+                '3.png',
+                '4.png',
+                '5.png',
+                '6.png',
+                '7.png',
+                '8.png',
+                '9.png',
+                '10.png'
+            ]
+
+            const beginning = [
+                'Кто рано встает,',
+                'На ошибках учатся,',
+                'Когда меня рожали,',
+                'Каждый может кинуть камень в волка,',
+                'Если жизнь дает тебе лимоны, не сдавайся,',
+                'Если вы не можете найти дорогу, то,',
+                'Не бойтесь ошибаться -',
+            ];
+
+            const end = [
+                'тот почти всегда пожалеет о своем решении.',
+                'но на своих ошибках учиться веселее.',
+                ' собственно тогда я и родился',
+                'но не каждый может кинуть волка в камень.',
+                'просто сделайте лимонад.',
+                'возможно, вы просто не там ищете.',
+                'бойтесь повторять ошибки.',
+            ];
+
+            const randomBeginning = getRandomElement(beginning, beginning.length);
+            const randomEnd = getRandomElement(end, end.length);
+            const randomImg = getRandomElement(images, images.length);
+
+            const randomQuote = randomBeginning + ' ' + randomEnd;
+
+            smoothlyExit();
+
+            function smoothlyShow() {
+                setTimeout(function () {
+
+                    image.src = `./images/${randomImg}`;
+                    quote.textContent = randomQuote;
+
+                    image.classList.add('show');
+                    quote.classList.add('show');
+                }, 500);
+            }
+
+            function smoothlyExit() {
+                setTimeout(function () {
+                    image.classList.remove('show');
+                    quote.classList.remove('show');
+                    smoothlyShow();
+                }, 500)
+            }
+        }
+
+        generateQuote();
+        
+    </script>
+</body>
+
+</html>
