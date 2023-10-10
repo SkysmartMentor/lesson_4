@@ -30,14 +30,6 @@
         }
 
         function generateQuote() {
-            const qoutes = [
-                'Каждый может кинуть камень в волка, но не каждый может кинуть волка в камень.',
-                'Кто рано встает, тот потом пожалеет о своем решении.',
-                'Когда меня рожали, собственно тогда я и родился.',
-                'Не бойся ошибаться, бойся не ошибаться.',
-                'Нельзя стоять, когда другие работают. Надо лежать.',
-                'Иногда, жизнь - это жизнь, а ты в ней - иногда.',
-            ]
             const images = [
                 '1.png',
                 '2.png',
@@ -45,10 +37,6 @@
                 '4.png',
                 '5.png',
                 '6.png',
-                '7.png',
-                '8.png',
-                '9.png',
-                '10.png'
             ]
 
             const beginning = [
@@ -60,7 +48,7 @@
                 'Иногда, жизнь - это жизнь, ',
             ];
 
-            const end = [
+            const ending = [
                 'тот потом пожалеет о своем решении.',
                 'собственно, тогда я и родился.',
                 'но не каждый может кинуть волка в камень.',
@@ -70,7 +58,7 @@
             ];
 
             const randomBeginning = getRandomElement(beginning, beginning.length);
-            const randomEnd = getRandomElement(end, end.length);
+            const randomEnd = getRandomElement(ending, ending.length);
             const randomImg = getRandomElement(images, images.length);
 
             const randomQuote = randomBeginning + ' ' + randomEnd;
