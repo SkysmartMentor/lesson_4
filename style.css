@@ -15,7 +15,6 @@ body {
     background-color: #f2f2f2;
     background-image: url(./images/background.png);
     background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .main {
@@ -41,9 +40,9 @@ body {
     color: black;
     border: none;
     cursor: pointer;
-    position: absolute;
-    bottom: 5%;
-    left: calc(50% - 312px / 2);
+    /* position: absolute; */
+    /* bottom: 5%; */
+    /* left: calc(50% - 312px / 2); */
 }
 
 .main__button:hover {
@@ -60,7 +59,7 @@ body {
 }
 
 .main__img {
-    max-width: 500px;
+    max-width: 440px;
 }
 
 .main__quote {
@@ -68,6 +67,9 @@ body {
     color: var(--text-color);
     padding: 32px 94px;
     text-align: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .main__img, .main__quote {
@@ -82,6 +84,7 @@ body {
 
 .main__quote-wrap {
     background-color: rgba(146, 178, 191, .2);
+    height: 160px;
 }
 
 .main__quote-wrap::before,
@@ -90,5 +93,5 @@ body {
     border-top: 3px solid var(--text-color);
     display: block;
     width: 100%;
-    box-shadow: 0 0 16px 8px var(--text-color);
+    box-shadow: 0 0 16px 4px var(--text-color);
 }

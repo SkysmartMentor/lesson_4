@@ -75,30 +75,33 @@
 
             const randomQuote = randomBeginning + ' ' + randomEnd;
 
-            smoothlyExit();
+            setTimeout(hide, 100);
 
-            function smoothlyShow() {
-                setTimeout(function () {
-
-                    image.src = `./images/${randomImg}`;
-                    quote.textContent = randomQuote;
-
-                    image.classList.add('show');
-                    quote.classList.add('show');
-                }, 500);
+            function hide() {
+                image.classList.remove('show');
+                quote.classList.remove('show');
+                setTimeout(show, 500);
             }
 
-            function smoothlyExit() {
-                setTimeout(function () {
-                    image.classList.remove('show');
-                    quote.classList.remove('show');
-                    smoothlyShow();
-                }, 500)
+            function show() {
+                if (randomQuote.length <= 48) {
+                    quote.style.fontSize = '40px';
+                    quote.style.justifyContent = 'center';
+                } else {
+                    quote.style.fontSize = '36px';
+                    quote.style.justifyContent = 'left';
+                }
+
+                image.src = `./images/${randomImg}`;
+                quote.textContent = randomQuote;
+
+                image.classList.add('show');
+                quote.classList.add('show');
             }
         }
 
         generateQuote();
-        
+
     </script>
 </body>
 
